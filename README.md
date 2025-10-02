@@ -1,4 +1,5 @@
 # Grep App Search
+[![smithery badge](https://smithery.ai/badge/@PenTest-duck/mit-15-376-homework-3)](https://smithery.ai/server/@PenTest-duck/mit-15-376-homework-3)
 
 An MCP server built with [Smithery CLI](https://smithery.ai/docs/getting_started/quickstart_build_python)
 
