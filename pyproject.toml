@@ -1,12 +1,27 @@
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
 [project]
-name = "mit-15-376-homework-3"
+name = "mcp-server-grep-app"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "click>=8.3.0",
-    "gitpython>=3.1.45",
-    "mcp>=1.15.0",
-    "pydantic>=2.11.9",
+description = "An MCP server for grep.app, the blazing fast GitHub code search engine."
+authors = [
+    {name = "Chris Yoo", email = "chrisyoo@mit.edu"}
 ]
+
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.15.0",
+    "requests>=2.32.5",
+    "smithery>=0.4.2",
+]
+
+[project.scripts]
+dev = "smithery.cli.dev:main" # Run the MCP server in development mode
+start = "smithery.cli.start:main" # Run the MCP server in production mode
+playground = "smithery.cli.playground:main" # Run server with interactive testing playground
+
+[tool.smithery]
+server = "mcp_server_grep_app.server:create_server" # Function that returns a patched FastMCP server
+log_level = "warning" # Production log level (optional, defaults to "warning")
